@@ -159,7 +159,7 @@ exploit
 
 Navigating to the newly created page in the browser causes the server to execute the PHP payload, which connects back to the Metasploit listener. A Meterpreter session is opened.
 
-![meterpreter_session](screenshot/Screen6.png)
+![meterpreter_session](screenshots/Screen6.png)
 
 The `getuid` command confirms the current user: `apache` (uid=48). Dropping to a system shell with the `shell` command reveals another problem: the shell obtained is a *limited shell*, also called a dumb shell. It has no job control, no tab completion, and critically cannot run `su` because it is not associated with a real terminal. Running `su -` immediately fails with:
 
@@ -193,7 +193,7 @@ The flag `-R` enables recursive search across all subdirectories, and `-i` makes
 
 The output reveals that inside the home directory of user `patrick` there is a hidden folder `.tomboy` containing a note file whose title includes the string "Root password".
 
-![grep_result](screenshot/Screen7.png)
+![grep_result](screenshots/Screen7.png)
 
 ---
 
@@ -225,7 +225,7 @@ su -
 
 Entering `50$cent` when prompted for the password succeeds immediately.
 
-![root_shell](screenshot/Screen8.png)
+![root_shell](screenshots/Screen8.png)
 
 ```
 [root@localhost ~]# id
